@@ -1,1 +1,25 @@
 
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="style.css">
+    <link href="script.js">
+    <title>Projekti 1</title>
+</head>
+<body>
+    <div class = "lista">
+    <input type="txt" placeholder = "Kirjoita tähän">
+    <button class="lisää" onclick="return validoiTeksti(this);">+</button>
+    <button class="poista" onclick="return poistaKaikki()">Poista kaikki</button>
+    </div>
+    <br>
+    <h2>Tehtävälista:</h2>
+    <li>
+        <ul id = "to-do">Tekstiä</ul>
+        <ul id = "to-do" class="merkki">Tekstiä2<span><input type="button" id="kiinni" value="X" onclick="DeleteRow()"></span></ul>
+    </li>
+</body>
+</html>
