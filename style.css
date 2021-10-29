@@ -1,1 +1,63 @@
+body {
+	background: black;
+	color: white;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+button {
+	padding: 6px;
+	margin: 3px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.merkki {
+	text-decoration: line-through;
+	background-color: rgb(59, 59, 59);
+	border-radius: 4px;
+}
+
+.kiinni {
+	display: none;
+}
+
+.lisää {
+	background: rgb(59, 59, 59);
+	color:greenyellow;
+	border-width: 3px;
+	border-color: honeydew;
+	font-size: 20px;
+	margin-left: 4px;
+  }
+
+.poista {
+	background: rgb(59, 59, 59);
+	color:red;
+	border-color: honeydew;
+	border-width: 3px;
+	font-size: 18px;
+	margin-left: 4px;
+}
+
+  li {
+	list-style: none;
+	position: relative;
+	height: 25px;
+	line-height: 25px;
+	background: rgb(94, 94, 94);
+	border-radius: 4px;
+	margin-bottom: 2px;
+	padding: 2 10px;
+	cursor: pointer;
+  }
+
+  
+  li span {
+	position: absolute;
+	margin-left: 6px;
+  }
+
+  .virhe {
+	  border-color: red;
+  }
 
