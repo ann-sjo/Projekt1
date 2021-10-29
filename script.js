@@ -7,40 +7,59 @@ function validoiTeksti(this) {
         // lisää virheilmoituksen,
         comments.parentNode.classList.add("virhe");
         document.getElementById("virheilmoitus").innerHTML("Tämä kenttä ei voi olla tyhjä.");
+        valid = false;
     if (this > 4)
-    comments.parentNode.classList.add("virhe");
-    document.getElementById("virheilmoitus").innerHTML("Liian lyhyt syöte.");
+        comments.parentNode.classList.add("virhe2");
+        document.getElementById("virheilmoitus").innerHTML("Liian lyhyt syöte.");
+        valid = false;
     } else {
         // poistaa virheilmoituksen
         comments.parentNode.classList.remove("virhe");
-        lisääItem(this)
+        comments.parentNode.classList.remove("virhe2");
+        valid = true;
+        if (valid == true) {
+            lisääItem(this)
+            return this
+        }
     }
 }
 
 // lisää uuden tekstin listaan
-// tallentaa lisätyn itemin?
 function lisääItem() {
-    //lisää tekstin kanssa
+    //lisää elementti tekstin kanssa
     //lista id ("to-do")
-    var txt = document.createElement("ul");  
+    var txt = document.createElement("ul"); 
+    
+    // lisää riville poistonapin
+    // ei vielä toimi
+    var i;
+    for (i = 0; i<myNodelist.length; i++) {
+        var span = document.createElemnent("SPAN");
+        var txt = document.createTextNode("X");
+        span.className = "kiinni";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+    }
+
+    // Local storage
+    var userData = input.value; // hae kayttäjän syöte
+    var getLocalStorage = localStorage.getItem("tehtävä");  
+    if(getLocalStorage == ""){
+        listArr = []; // uusi array
+    } else {
+        listArr = JSON.parse(getLocalStorage); // JSON --> JS
+    }
+    listArr.push(userData); // käyttäjän syöte lisätään
+    localStorage.setitem("tehtävä", JSON.stringlify(listArr)); // JS --> JSON
 }
+
 
 // poistaa kaikki listaelementit
 function poistaKaikki() {
-    //document.getElementById("ul").clear();
-    //sessionStorage.clear();
-    //localStorage.clear();
+    document.getElementByElement("ul").clear();
+    localStorage.clear();
 }
 
-// lisää riville poistonapin
-var i;
-for (i = 0; i<myNodelist.length; i++) {
-    var span = document.createElemnent("SPAN");
-    var txt = document.createTextNode("X");
-    span.className = "kiinni";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-}
 
 /*
 // poistaa yhden rivin
@@ -52,6 +71,7 @@ function DeleteRow() {
 */
 
 // piilottaa, kun poistonappia on painettu
+// poistonappia ei ole
 var close = document.getElementByClassName("close");
 var i;
 for (i=0; i<close.length; i++) {
